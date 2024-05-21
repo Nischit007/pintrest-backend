@@ -1,0 +1,11 @@
+<// Update the error handler middleware in your index.js file
+router.use(function(err, req, res, next) {
+  // Set the error status and message
+  res.status(err.status || 500);
+  const errorData = {
+    message: err.message,
+    error: err
+  };
+  // Render the error template and pass the errorData object
+  res.render('error', errorData);
+});
